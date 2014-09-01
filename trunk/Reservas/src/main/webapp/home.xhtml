@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Home</title>
+        <style>
+            html  {
+                background: -webkit-linear-gradient(left top, #005399, #005399, white, #F6B511); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right,  #005399  ,#005399,white, #F6B511); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, #005399 ,#005399,white,#F6B511); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right,  #005399  ,#005399,white, #F6B511 ); /* Standard syntax (must be last) */
+            }
+            html {
+                height: 100%;
+            }
+        </style>
+        <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
+    </head>
+
+    <body>
+        <h2 style="text-align:center;color:#663300">Sistema de reservas - Salas informáticas 3° piso</h2>
+        <table width="65%" align="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+
+                    <p:fieldset legend="Iniciar sesión" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                        <h:panelGrid columns="2" cellpadding="5">
+
+                            <h:form>
+
+                                <p:spacer height="20" /><p:separator />
+
+                                <h:panelGrid columns="2" cellpadding="5">
+
+                                    <h:outputText value="Usuario: " />
+                                    <p:inputText />
+
+                                    <h:outputText value="Password: " />
+                                    <p:password id="nonFeedback" value="password" />
+
+                                    <p:growl id="growl" life="2000" />
+                                    <p:commandButton value="Iniciar sesión" id="withIcon" actionListener="home" update="growl" icon="ui-icon-disk" />
+                                </h:panelGrid>
+                                <p:spacer height="20" /><p:separator />
+                                <a href="http://iefangel.files.wordpress.com/2008/09/registrowordpressformulario.jpg" target="">Si aún no tienes una cuenta registrate aqui...</a>
+                            </h:form>
+                            <h:graphicImage url="/Home__sala_informatica.jpg" /> 
+                        </h:panelGrid>
+
+                    </p:fieldset>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
