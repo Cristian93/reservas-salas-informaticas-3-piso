@@ -22,11 +22,11 @@
         <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
     </h:head>
     <h:body>
-        <h2 style="text-align:center;color:#663300">Filtrar consulta de salas disponibles</h2>
+        <h2 style="text-align:center;color:#663300">Actualización usuario</h2>
         <table width="45%" align="center" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td>
-                    <p:fieldset legend="Filtrar salas disponibles" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                    <p:fieldset legend="Actualizar usuario" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
                         <h:panelGrid columns="2" cellpadding="5">   
                             <h:form id="form">
                                 <p:growl id="msgs" showDetail="true" />
@@ -38,17 +38,17 @@
                                     <p:inputText id="apellido"/>
                                      <p:outputLabel for="correo" value="Correo:" />
                                     <p:inputText id="correo"/>
-                                    <p:outputLabel for="actual" value="Actual:" />
-                                    <p:inputText id="actual"/>
-                                    <p:outputLabel for="nueva" value="Nueva:" />
-                                    <p:inputText id="nueva"/>
-                                    <p:outputLabel for="vuel" value="Vuelva a escribir:" />
-                                    <p:inputText id="vuel"/>
+                                    <p:outputLabel for="pass" value="Contraseña actual:" />
+                                    <p:password id="pass" value="password" />
+                                    <p:outputLabel for="passwd" value="Contraseña nueva:" />
+                                    <p:password id="passwd" value="passw" />
+                                    <p:outputLabel for="vuel" value="Vuelva a escribir la contraseña:" />
+                                    <p:password id="vuel" value="passwrd" />
                                      <p:outputLabel for="programa" value="Programa:" />
                                     <p:selectOneMenu id="programa" value="#{selectOneMenuView.console}">
-                                        <f:selectItem itemLabel="Ing. Sistemas" itemValue="Eclipse" />
-                                        <f:selectItem itemLabel="Ing. Industrial" itemValue="Netbeans" />
-                                        <f:selectItem itemLabel="Ing. Electronica" itemValue="Linux" />
+                                        <f:selectItem itemLabel="Ing. Sistemas" itemValue="Sistemas" />
+                                        <f:selectItem itemLabel="Ing. Industrial" itemValue="Industrial" />
+                                        <f:selectItem itemLabel="Ing. Electronica" itemValue="Civil" />
                                         <f:selectItem itemLabel="Ing. Civil" itemValue="Bizagi" />
                                     </p:selectOneMenu>
 
@@ -62,7 +62,7 @@
 
                                 <h6><strong>Sistema de reservas - Salas informáticas 3° piso.</strong></h6>
                             </h:form>
-                            <h:graphicImage url="/filtrar_salas.png" /> 
+                            <h:graphicImage url="/edit-user-512.gif" /> 
                         </h:panelGrid>
                     </p:fieldset>
                 </td>
