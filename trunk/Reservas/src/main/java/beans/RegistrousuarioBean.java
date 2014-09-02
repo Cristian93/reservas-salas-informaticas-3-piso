@@ -83,9 +83,5 @@ public class RegistrousuarioBean implements Serializable {
      */
     public void setPrograma_academico(String programa_academico) {
         this.programa_academico = programa_academico;
-    }
-       
-    
-    
-    
+    }  
 }
