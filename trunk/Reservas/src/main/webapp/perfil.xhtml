@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Perfil De Usuario</title>
+        <style>
+            html {
+                background: -webkit-linear-gradient(left top, #005399, #005399, white, #F6B511); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right,  #005399  ,#005399,white, #F6B511); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, #005399 ,#005399,white,#F6B511); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right,  #005399  ,#005399,white, #F6B511 ); /* Standard syntax (must be last) */
+            }
+            html {
+                height: 100%;
+            }
+        </style>
+        <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
+    </h:head>
+    <h:body>
+        <h2 style="text-align:center;color:#663300">Sistema de reservas - Salas informáticas 3° piso</h2>
+        <table width="65%" align="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <p:fieldset legend="Perfil De Usuario" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                        <div align="right">  <h:panelGrid columns="2" cellpadding="5">
+                             <h:graphicImage url="/user-icon.jpg"  width = "220" height = "220" /> 
+                             <h:form>
+                                 <div align="right">    <a href="http://google.com"   >Cerrar Sesion </a> </div>
+                                
+                                   
+                                <p:spacer height="20" /><p:separator />
+                                
+                                <h:panelGrid columns="1" cellpadding="3">
+                                    <h:outputText value="John Velandia " />    
+                                    <h:outputText value="javelandia@ucatolica.edu.co " /> 
+                                    <h:outputText value="Programa De Ingenieria De Sistemas " /> 
+                                    <h:panelGrid columns="2" cellpadding="2">
+                                    <h:graphicImage url="/icono-editar.png"  width = "40" height = "40"/> 
+                                    <a href="http://google.com">Actualizar Datos De Usuario</a>
+                                   
+                                    </h:panelGrid>
+                                     <p:spacer height="10" /><p:separator /> 
+                                </h:panelGrid>
+                               
+                               
+                            </h:form>
+                          
+                        </h:panelGrid> </div>
+                    </p:fieldset>
+                </td>
+            </tr>
+        </table>
+    </h:body>
+</html>
