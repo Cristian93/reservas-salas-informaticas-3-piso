@@ -5,11 +5,17 @@
  */
 
 package beans;
+import beans.FiltroBean;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
-/**
- *
- * @author Sebas
- */
-public class SalasBean {
+@ManagedBean(name="SalasBean")
+@SessionScoped
+public class SalasBean implements Serializable {
+   public static void main(String []args){
+   
+   
+   }
     
 }
