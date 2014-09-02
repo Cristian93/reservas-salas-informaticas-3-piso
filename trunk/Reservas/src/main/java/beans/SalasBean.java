@@ -34,6 +34,72 @@ public class SalasBean implements Serializable {
             */
       return e1;
   }
+  public boolean gete2() {
+      
+    /*  if(f.getNumero_estudiantes()>20)
+          e1=true;
+      else
+          e1=false;
+		return e1;
+            
+            */
+      return e1;
+  }
+  public boolean gete3() {
+      
+    /*  if(f.getNumero_estudiantes()>20)
+          e1=true;
+      else
+          e1=false;
+		return e1;
+            
+            */
+      return e1;
+  }
+  public boolean gete4() {
+      
+    /*  if(f.getNumero_estudiantes()>20)
+          e1=true;
+      else
+          e1=false;
+		return e1;
+            
+            */
+      return e1;
+  }
+  public boolean gete5() {
+      
+    /*  if(f.getNumero_estudiantes()>20)
+          e1=true;
+      else
+          e1=false;
+		return e1;
+            
+            */
+      return e1;
+  }
+  public boolean gete6() {
+      
+    /*  if(f.getNumero_estudiantes()>30)
+          e1=true;
+      else
+          e1=false;
+		return e1;
+            
+            */
+      return e1;
+  }
+  public boolean gete7() {
+      
+    /*  if(f.getNumero_estudiantes()>40)
+          e1=true;
+      else
+          e1=false;
+		return e1;
+            
+            */
+      return e1;
+  }
             
 
 	public void sete1(boolean e1) {
