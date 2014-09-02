@@ -14,12 +14,12 @@ import java.io.Serializable;
 @SessionScoped
 public class SalasBean implements Serializable {
     boolean e1=true;
-    boolean e2;
-    boolean e3;
-    boolean e4;
-    boolean e5;
-    boolean e6;
-    boolean e7;
+    boolean e2=false;
+    boolean e3=true;
+    boolean e4=true;
+    boolean e5=false;
+    boolean e6=false;
+    boolean e7=true;
     
     
     FiltroBean f=new FiltroBean();
@@ -43,7 +43,7 @@ public class SalasBean implements Serializable {
 		return e1;
             
             */
-      return e1;
+      return e2;
   }
   public boolean gete3() {
       
@@ -54,7 +54,7 @@ public class SalasBean implements Serializable {
 		return e1;
             
             */
-      return e1;
+      return e3;
   }
   public boolean gete4() {
       
@@ -65,7 +65,7 @@ public class SalasBean implements Serializable {
 		return e1;
             
             */
-      return e1;
+      return e4;
   }
   public boolean gete5() {
       
@@ -76,7 +76,7 @@ public class SalasBean implements Serializable {
 		return e1;
             
             */
-      return e1;
+      return e5;
   }
   public boolean gete6() {
       
@@ -87,7 +87,7 @@ public class SalasBean implements Serializable {
 		return e1;
             
             */
-      return e1;
+      return e6;
   }
   public boolean gete7() {
       
@@ -98,13 +98,9 @@ public class SalasBean implements Serializable {
 		return e1;
             
             */
-      return e1;
+      return e7;
   }
             
-
-	public void sete1(boolean e1) {
-		this.e1 = e1;
-	}
 
 
     
