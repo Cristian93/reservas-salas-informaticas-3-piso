@@ -27,32 +27,143 @@
             <tr>
                 <td>
                     <p:fieldset legend="Perfil De Usuario" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
-                        <div align="right">  <h:panelGrid columns="2" cellpadding="5">
-                             <h:graphicImage url="/user-icon.jpg"  width = "220" height = "220" /> 
+                        <div align="center"> 
+                            <div align="right">    <a href="http://google.com"   >Cerrar Sesion </a> </div>
+                        <h:panelGrid columns="2"   cellpadding="5">
+                             
+                             
+                             <h:graphicImage url="/user-icon.jpg"  width = "220" height = "220" style="border:2px solid black"/> 
                              <h:form>
-                                 <div align="right">    <a href="http://google.com"   >Cerrar Sesion </a> </div>
+                                 
                                 
                                    
-                                <p:spacer height="20" /><p:separator />
+                                <p:separator />
                                 
                                 <h:panelGrid columns="1" cellpadding="3">
                                     <h:outputText value="John Velandia " />    
                                     <h:outputText value="javelandia@ucatolica.edu.co " /> 
                                     <h:outputText value="Programa De Ingenieria De Sistemas " /> 
                                     <h:panelGrid columns="2" cellpadding="2">
-                                    <h:graphicImage url="/icono-editar.png"  width = "40" height = "40"/> 
-                                    <a href="http://google.com">Actualizar Datos De Usuario</a>
-                                   
+                                        <h:graphicImage url="/icono-editar.png"  width = "40" height = "40"/> 
+                                        <a href="salas.xhtml">Actualizar Datos De Usuario</a>
                                     </h:panelGrid>
-                                     <p:spacer height="10" /><p:separator /> 
+                                     <p:separator />    
                                 </h:panelGrid>
                                
                                
                             </h:form>
-                          
-                        </h:panelGrid> </div>
+                         
+                        </h:panelGrid> 
+                          <div>  <h:outputText value="Mis Reservas " />  </div>
+                         <p:separator />
+                        <h:panelGrid columns="1"   cellpadding="5">
+                             
+                
+                                 <TABLE BORDER="1"   > 
+                                    <tr> 
+                                       <th>Sala</th> 
+                                       <th>Fecha</th> 
+                                       <th>Hora</th> 
+                                       <th>Software</th> 
+                                       <th>Clase</th> 
+                                       <th># De Estudiantes</th> 
+                                       <th>Recursos</th> 
+                                    </tr> 
+                                    <tr> 
+                                       <td>5</td> 
+                                       <td>2014/05/03</td> 
+                                       <td>Dato 3</td> 
+                                       <td>Dato 3</td> 
+                                       <td>Dato 3</td> 
+                                       <td>Dato 3</td> 
+                                       <td>Dato 3</td> 
+                                    </tr> 
+                                    <tr> 
+                                       <td>4</td> 
+                                       <td>2014/05/03</td> 
+                                       <td>Dato 6</td> 
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                    </tr> 
+                                    <tr> 
+                                       <td>2</td> 
+                                       <td>2014/05/03</td> 
+                                       <td>Dato 6</td> 
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                    </tr> 
+                                    <tr> 
+                                       <td>1</td> 
+                                       <td>2014/05/03</td> 
+                                       <td>Dato 6</td> 
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                    </tr> 
+                                    <tr> 
+                                       <td>4</td> 
+                                       <td>2014/05/03</td> 
+                                       <td>Dato 6</td> 
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                    </tr> 
+                                     <tr> 
+                                       <td>6</td> 
+                                       <td>2014/05/03</td> 
+                                       <td>Dato 6</td> 
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                    </tr> 
+                                     <tr> 
+                                       <td>2</td> 
+                                       <td>2014/05/03</td> 
+                                       <td>Dato 6</td> 
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                       <td>Dato 4</td>
+                                    </tr> 
+                                  </TABLE>
+                            
+                        </h:panelGrid>
+                         
+                        <p:spacer height="20" /><p:separator />
+                        <h:panelGrid columns="2" cellpadding="2">
+                            <h:panelGrid columns="2" cellpadding="2">
+                            
+                            
+                            
+                                    <h:graphicImage url="/add.png"  width = "40" height = "40"/> 
+                                    <a href="http://google.com">Crear Reserva</a>          
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" cellpadding="2">
+                            
+                            
+                            
+                                    <h:graphicImage url="/delete.png"  width = "40" height = "40"/> 
+                                    <a href="http://google.com">Actualizar o Eliminar Reserva</a>          
+                              </h:panelGrid>
+                            
+                                              
+                        </h:panelGrid>
+                        </div>
+                        
                     </p:fieldset>
                 </td>
+                
+                
+            </tr>
+            <tr>
+                
             </tr>
         </table>
     </h:body>
