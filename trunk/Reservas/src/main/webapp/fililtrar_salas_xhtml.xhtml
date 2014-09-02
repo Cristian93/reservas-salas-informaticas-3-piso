@@ -5,86 +5,63 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Filtro - Reserva de salas informáticas 3° piso</title>
+        <style>
+            html  {
+                background: -webkit-linear-gradient(left top, #005399, #005399, white, #F6B511); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right,  #005399  ,#005399,white, #F6B511); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, #005399 ,#005399,white,#F6B511); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right,  #005399  ,#005399,white, #F6B511 ); /* Standard syntax (must be last) */
+            }
+            html {
+                height: 100%;
+            }
+        </style>
+        <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
+    </h:head>
+    <h:body>
+        <h2 style="text-align:center;color:#663300">Filtrar consulta de salas disponibles</h2>
+        <table width="45%" align="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <p:fieldset legend="Filtrar salas disponibles" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                        <h:panelGrid columns="2" cellpadding="5">   
+                            <h:form id="form">
+                                <p:growl id="msgs" showDetail="true" />
+                                <p:spacer height="20" /><p:separator />
+                                <h:panelGrid columns="2" cellpadding="5" class="ui-grid"> 
+                                    <p:outputLabel for="multi" value="Fecha:" />
+                                    <p:calendar id="multi" value="#{FiltroBean.fecha}" pages="3" />
+                                    <p:outputLabel for="time" value="Hora:" />
+                                    <p:calendar id="time" value="#{FiltroBean.hora}" pattern="HH:mm a" timeOnly="true"  />
+                                    <h:outputLabel for="minMax" value="Número de estudiantes: " />
+                                    <p:spinner id="minMax" value="#{FiltroBean.numero_estudiantes}" min="0" max="60" />
 
-<h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Filtro - Reserva de salas informáticas 3° piso</title>
-<style>
-html  {
-    background: -webkit-linear-gradient(left top, #005399, #005399, white, #F6B511); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right,  #005399  ,#005399,white, #F6B511); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, #005399 ,#005399,white,#F6B511); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right,  #005399  ,#005399,white, #F6B511 ); /* Standard syntax (must be last) */
-}
-html {
-height: 100%;
-}
-</style>
-<h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
-</h:head>
+                                    <p:outputLabel for="console" value="Basic:" />
+                                    <p:selectOneMenu id="console" value="#{selectOneMenuView.console}">
+                                        <f:selectItem itemLabel="Eclipse" itemValue="Eclipse" />
+                                        <f:selectItem itemLabel="Netbeans" itemValue="Netbeans" />
+                                        <f:selectItem itemLabel="Linux" itemValue="Linux" />
+                                        <f:selectItem itemLabel="Bizagi" itemValue="Bizagi" />
+                                    </p:selectOneMenu>
 
-<h:body>
-<h2 style="text-align:center;color:#663300">Filtrar consulta de salas disponibles</h2>
-<table width="45%" align="center" border="0" cellspacing="0" cellpadding="0">
-<tr>
-<td>
+                                    <p:growl id="growl" life="2000" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="5">  
+                                    <p:commandButton value="Regresar" id="withIcon" actionListener="home" update="growl" icon="ui-icon-arrowreturnthick-1-w" />
+                                    <p:commandButton value="Filtar" id="conIcono" actionListener="home" update="growl" icon="ui-icon-search" />
+                                </h:panelGrid> 
+                                <p:spacer height="20" /><p:separator />
 
-   <p:fieldset legend="Filtrar salas disponibles" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
-        <h:panelGrid columns="2" cellpadding="5">
-        
- <h:form id="form">
-    <p:growl id="msgs" showDetail="true" />
-
- <p:spacer height="20" /><p:separator />
-
-<h:panelGrid columns="2" cellpadding="5" class="ui-grid"> 
-
-
- <p:outputLabel for="multi" value="Multiple:" />
- <p:calendar id="multi" value="#{calendarView.date}" pages="3" />
- 
- 
- <p:outputLabel for="time" value="Hora:" />
-        <p:calendar id="time" value="#{calendarView.date11}" pattern="HH:mm a" timeOnly="true"  />
- 
- 
-  <h:outputLabel for="basic" value="Basic Spinner: " />
-        <p:spinner id="basic" value="#{spinnerView.number1}" />
-        
-        <p:outputLabel value="DropDown:" for="dd" />
-        <p:autoComplete id="dd" dropdown="true" value="#{autoCompleteView.txt6}" completeMethod="#{autoCompleteView.completeText}" />
- 
- 
-  <p:growl id="growl" life="2000" />
- <p:commandButton value="Regresar" id="withIcon" actionListener="home" update="growl" icon="ui-icon-disk" />
- 
- <p:commandButton value="Iniciar sesión" id="conIcono" actionListener="home" update="growl" icon="ui-icon-disk" />
-  
-        </h:panelGrid>
-        
-        
-   <p:spacer height="20" /><p:separator />
-        
-        
-<p><strong>Sistema de reservas - Salas informáticas 3° piso.</strong></p>
-</h:form>
-   
-    
-
-<h:graphicImage url="/filtrar_salas.png" /> 
-</h:panelGrid>
-
- </p:fieldset>
-</td>
-</tr>
-</table>
-
-
-
-
-
-</h:body>
-
-
-
+                                <h6><strong>Sistema de reservas - Salas informáticas 3° piso.</strong></h6>
+                            </h:form>
+                            <h:graphicImage url="/filtrar_salas.png" /> 
+                        </h:panelGrid>
+                    </p:fieldset>
+                </td>
+            </tr>
+        </table>
+    </h:body>
 </html>
