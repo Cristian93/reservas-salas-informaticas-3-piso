@@ -13,9 +13,22 @@ import java.io.Serializable;
 @ManagedBean(name="SalasBean")
 @SessionScoped
 public class SalasBean implements Serializable {
-   public static void main(String []args){
-   
-   
-   }
+    boolean e1=true;
+    boolean e2;
+    boolean e3;
+    boolean e4;
+    boolean e5;
+    boolean e6;
+    boolean e7;
+  public boolean gete1() {
+		return e1;
+	}
+
+	public void sete1(boolean e1) {
+		this.e1 = e1;
+	}
+
+
+    
     
 }
