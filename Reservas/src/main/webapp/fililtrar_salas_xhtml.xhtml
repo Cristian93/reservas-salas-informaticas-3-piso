@@ -50,8 +50,10 @@
                                     <p:growl id="growl" life="2000" />
                                 </h:panelGrid>
                                 <h:panelGrid columns="2" cellpadding="5">  
-                                    <p:commandButton value="Regresar" id="withIcon" actionListener="home" update="growl" icon="ui-icon-arrowreturnthick-1-w" />
-                                    <p:commandButton value="Filtar" id="conIcono" actionListener="home" update="growl" icon="ui-icon-search" />
+                                    
+                                    <p:button outcome="perfil" value="Regresar" icon="ui-icon-arrowreturnthick-1-w" > </p:button> 
+                                    <p:button outcome="salas" value="Filtar" icon="ui-icon-search" > </p:button> 
+                                    
                                 </h:panelGrid> 
                                 <p:spacer height="20" /><p:separator />
 
