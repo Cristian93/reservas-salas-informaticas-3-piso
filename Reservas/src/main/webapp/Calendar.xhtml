@@ -22,17 +22,64 @@
         <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
     </h:head>
     <h:body>
-        <h2 style="text-align:center;color:#663300">Actualización usuario</h2>
-        <table width="45%" align="center" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-                <td>
-                    <p:fieldset legend="Calendar" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
-                        <h:panelGrid columns="2" cellpadding="5">   
-                            
-                        </h:panelGrid>
+        <h:form>
+                                <p:growl id="messages" showDetail="true" />
+
+                                <h:panelGrid columnClasses="value">
+                                    <h3 style="color: #FFFFFF">Calendario</h3>
+                                    <p:schedule id="schedule" value="#{CalendarBean.eventModel}" widgetVar="myschedule">
+
+                                        <p:ajax event="dateSelect" listener="#{CalendarBean.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                                        <p:ajax event="eventSelect" listener="#{CalendarBean.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                                        <p:ajax event="eventMove" listener="#{CalendarBean.onEventMove}" update="messages" />
+                                        <p:ajax event="eventResize" listener="#{CalendarBean.onEventResize}" update="messages" />
+
+                                    </p:schedule>
+                                
+                                </h:panelGrid>
+
+                                <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+                                    <h:panelGrid id="eventDetails" columns="2">
+                                        <h:outputLabel for="title" value="Title:" />
+                                        <p:inputText id="title" value="#{CalendarBean.event.title}" required="true" />
+
+                                        <h:outputLabel for="from" value="From:" />
+                                        <p:inputMask id="from" value="#{CalendarBean.event.startDate}" mask="99/99/9999">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </p:inputMask>
+
+                                        <h:outputLabel for="to" value="To:" />
+                                        <p:inputMask id="to" value="#{CalendarBean.event.endDate}" mask="99/99/9999">
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </p:inputMask>
+
+                                        <h:outputLabel for="allDay" value="All Day:" />
+                                        <h:selectBooleanCheckbox id="allDay" value="#{CalendarBean.event.allDay}" />
+
+                                        <p:commandButton type="reset" value="Reset" />
+                                        <p:commandButton id="addButton" value="Save" actionListener="#{CalendarBean.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+                                    </h:panelGrid>
+                                </p:dialog>    
+                            </h:form> 
+        <style type="text/css">
+    .value {
+        width: 1500px;
+    }
+</style>
+        
+  
+                   <p:fieldset legend="Calendar" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+        
+                           <div align="center"> 
+                           
+                       <p:button outcome="perfil" value="Ir al perfil de usuario" icon="ui-icon-person" > </p:button> 
+                       <div align="right">    <a href="home.xhtml"   >Cerrar Sesión </a> </div>
+                       </div>
+                       
+                      
                     </p:fieldset>
-                </td>
-            </tr>
-        </table>
+               
+            
+        
     </h:body>
 </html>
