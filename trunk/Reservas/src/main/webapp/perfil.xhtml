@@ -22,13 +22,13 @@
         <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
     </h:head>
     <h:body>
-        <h2 style="text-align:center;color:#663300">Sistema de reservas - Salas informáticas 3° piso</h2>
+        <h2 style="text-align:center;color:#663300">Perfil De Usuario</h2>
         <table width="65%" align="center" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td>
                     <p:fieldset legend="Perfil De Usuario" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
                         <div align="center"> 
-                            <div align="right">    <a href="http://google.com"   >Cerrar Sesion </a> </div>
+                            <div align="right">    <a href="home.xhtml"   >Cerrar Sesión </a> </div>
                         <h:panelGrid columns="2"   cellpadding="5">
                              
                              
@@ -45,7 +45,7 @@
                                     <h:outputText value="Programa De Ingeniería De Sistemas " /> 
                                     <h:panelGrid columns="2" cellpadding="2">
                                         <h:graphicImage url="/icono-editar.png"  width = "40" height = "40"/> 
-                                        <a href="salas.xhtml">Actualizar Datos De Usuario</a>
+                                        <a href="Actualizar.xhtml">Actualizar Datos De Usuario</a>
                                     </h:panelGrid>
                                      <p:separator />    
                                 </h:panelGrid>
@@ -56,7 +56,7 @@
                         </h:panelGrid> 
                           <div>  <h:outputText value="Mis Reservas " />  </div>
                          <p:separator />
-                        <h:panelGrid columns="1"   cellpadding="5">
+                        <h:panelGrid columns="1"   cellpadding="6">
                              
                 
                                  <TABLE BORDER="1"   > 
@@ -66,6 +66,7 @@
                                        <th>Hora</th> 
                                        <th>Software</th> 
                                        <th>Clase</th> 
+                                       <th>Grupo</th> 
                                        <th># De Estudiantes</th> 
                                        <th>Recursos</th> 
                                     </tr> 
@@ -75,6 +76,7 @@
                                        <td>7:00 am</td> 
                                        <td>Eclipse</td> 
                                        <td>Ingeniería De Software</td> 
+                                       <th>1</th> 
                                        <td>20</td> 
                                        <td>Video Beam</td> 
                                     </tr> 
@@ -84,6 +86,7 @@
                                        <td>9:00 am</td> 
                                        <td>Netbeans</td>
                                        <td>Ingeniería De Software</td>
+                                       <th>2</th> 
                                        <td>25</td>
                                        <td>Video Beam</td>
                                     </tr> 
@@ -93,6 +96,7 @@
                                        <td>02:00 pm</td> 
                                        <td>Eclipse</td>
                                        <td>Ingeniería De Software</td>
+                                       <th>1</th> 
                                        <td>30</td>
                                        <td>Video Beam</td>
                                     </tr> 
@@ -102,6 +106,7 @@
                                        <td>01:00 pm</td> 
                                        <td>Visual Studio</td>
                                        <td>Arquitectura De Software</td>
+                                       <th>2</th> 
                                        <td>25</td>
                                        <td>Video Beam</td>
                                     </tr> 
@@ -111,6 +116,7 @@
                                        <td>11:00 am</td> 
                                        <td>Google Chroome</td>
                                        <td>Ingeniería De Software</td>
+                                       <th>101</th> 
                                        <td>30</td>
                                        <td>Video Beam</td>
                                     </tr> 
@@ -120,6 +126,7 @@
                                        <td>7:00 am</td> 
                                        <td>Cmap Tools</td>
                                        <td>Ingeniería De Software</td>
+                                       <th>2</th> 
                                        <td>35</td>
                                        <td>Video Beam</td>
                                     </tr> 
@@ -129,6 +136,7 @@
                                        <td>9:00 am</td> 
                                        <td>Eclipse</td>
                                        <td>Ingeniería De Software</td>
+                                       <th>4</th> 
                                        <td>40</td>
                                        <td>Video Beam</td>
                                     </tr> 
@@ -143,20 +151,21 @@
                             
                             
                                     <h:graphicImage url="/add.png"  width = "40" height = "40"/> 
-                                    <a href="http://google.com">Crear Reserva</a>          
+                                    <a href="filtrar_salas_xhtml.xhtml">Crear Reserva</a>          
                             </h:panelGrid>
                             <h:panelGrid columns="2" cellpadding="2">
                             
                             
                             
                                     <h:graphicImage url="/Actu-elim.PNG"  width = "40" height = "40"/> 
-                                    <a href="http://google.com">Actualizar o Eliminar Reserva</a>          
+                                    <a href="Calendar.xhtml">Actualizar o Eliminar Reserva</a>          
                               </h:panelGrid>
                             
                                               
                         </h:panelGrid>
                         </div>
-                        
+                        <p:separator />
+                         <h6><strong>Sistema de reservas - Salas informáticas 3° piso.</strong></h6>
                     </p:fieldset>
                 </td>
                 

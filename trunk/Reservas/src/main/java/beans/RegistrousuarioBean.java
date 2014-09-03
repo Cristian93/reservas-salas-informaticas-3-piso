@@ -2,9 +2,10 @@
 
 package beans;
 
+import java.io.Serializable;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import java.io.Serializable;
 
 @ManagedBean(name="RegistrarusuarioBean")
 @SessionScoped
@@ -16,6 +17,8 @@ public class RegistrousuarioBean implements Serializable {
     private String correo2;
     private String programa_academico;
 
+    
+    
     /**
      * @return the nombre
      */
