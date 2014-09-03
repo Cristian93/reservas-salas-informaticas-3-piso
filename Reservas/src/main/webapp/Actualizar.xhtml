@@ -27,17 +27,18 @@
             <tr>
                 <td>
                     <p:fieldset legend="Actualizar usuario" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                       <div align="right">    <a href="home.xhtml"   >Cerrar Sesión </a> </div>
                         <h:panelGrid columns="2" cellpadding="5">   
                             <h:form id="form">
                                 <p:growl id="msgs" showDetail="true" />
                                 <p:spacer height="20" /><p:separator />
                                 <h:panelGrid columns="2" cellpadding="5" class="ui-grid"> 
                                      <p:outputLabel for="nombre" value="Nombre:" />
-                                    <p:inputText id="nombre"/>
+                                    <p:inputText id="nombre" value="John"/>
                                      <p:outputLabel for="apellido" value="Apellido:" />
-                                    <p:inputText id="apellido"/>
+                                    <p:inputText id="apellido" value="Velandia"/>
                                      <p:outputLabel for="correo" value="Correo:" />
-                                    <p:inputText id="correo"/>
+                                    <p:inputText id="correo" value="javelandia@ucatolica.edu.co"/>
                                     <p:outputLabel for="pass" value="Contraseña actual:" />
                                     <p:password id="pass" value="password" />
                                     <p:outputLabel for="passwd" value="Contraseña nueva:" />
