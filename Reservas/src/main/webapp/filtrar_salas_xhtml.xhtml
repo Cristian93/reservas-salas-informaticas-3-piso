@@ -33,6 +33,10 @@
                                 <p:growl id="msgs" showDetail="true" />
                                 <p:spacer height="20" /><p:separator />
                                 <h:panelGrid columns="2" cellpadding="5" class="ui-grid"> 
+                                    <p:outputLabel for="multi" value="Nombre curso:" />
+                                     <p:inputText />
+                                    <p:outputLabel for="multi" value="Grupo:" />
+                                     <p:inputText />
                                     <p:outputLabel for="multi" value="Fecha:" />
                                     <p:calendar id="multi" value="#{FiltroBean.fecha}" pages="3" />
                                     <p:outputLabel for="time" value="Hora:" />
@@ -47,7 +51,7 @@
                                         <f:selectItem itemLabel="Linux" itemValue="Linux" />
                                         <f:selectItem itemLabel="Bizagi" itemValue="Bizagi" />
                                     </p:selectOneMenu>
-
+                                    <center> <p:button  value="Anexar" icon="ui-icon-folder-open" > </p:button></center>
                                     <p:growl id="growl" life="2000" />
                                 </h:panelGrid>
                                 <h:panelGrid columns="2" cellpadding="5">  
