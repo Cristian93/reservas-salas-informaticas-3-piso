@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<title>Google Maps - Servicio de direcciones</title>
+
+<link rel="stylesheet" type="text/css" href="CSS/principal.css" />
+
+<style>
+#map-canvas {
+	height: 570px;
+	margin: 0px;
+	padding: 0px
+}
+
+#button {
+	position: absolute;
+	top: 170px;
+	left: 58.3%;
+	z-index: 2;
+	background-color: ##A8A8A8;
+
+	border: 2px solid #000000;
+}
+
+
+#start::-webkit-input-placeholder
+{
+  color:  #006600;
+}
+
+#end::-webkit-input-placeholder
+{
+  color:  #980000 ;
+}
+.controls {
+	margin-top: 16px;
+	border: 1px solid transparent;
+	border-radius: 2px 0 0 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+	background-color: #fff;
+	padding: 0 11px 0 13px;
+	width: 400px;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	text-overflow: ellipsis;
+}
+
+
+
+#pac-input:focus {
+	border-color: #4d90fe;
+	margin-left: -1px;
+	padding-left: 14px; /* Regular padding-left + 1. */
+	width: 401px;
+}
+
+.pac-container {
+	font-family: Roboto;
+}
+
+#type-selector {
+	color: #fff;
+	background-color: #4d90fe;
+	padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: 300;
+}
+
+}
+</style>
+<script
+	src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+
+<script>
+    var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
+    var map;
+
+
+function initialize() {
+	directionsDisplay = new google.maps.DirectionsRenderer();
+	
+	 var mapOptions = {
+			    zoom:5,
+			    center: new google.maps.LatLng(4.1156735, -72.9301367)
+			    
+     };
+	
+  var markers = [];
+  
+  
+  map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+  directionsDisplay.setMap(map);
+ 
+
+
+  // Create the search box and link it to the UI element.
+  var input = /** @type {HTMLInputElement} */(
+      document.getElementById('pac-input'));
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+  var searchBox = new google.maps.places.SearchBox(
+    /** @type {HTMLInputElement} */(input));
+  
+  var origen = /** @type {HTMLInputElement} */(
+	      document.getElementById('start'));
+	  map.controls[google.maps.ControlPosition.TOP_LEFT].push(origen);
+
+	 searchBox1 = new google.maps.places.SearchBox(
+	    /** @type {HTMLInputElement} */(origen));
+	  
+	  var destino = /** @type {HTMLInputElement} */(
+		      document.getElementById('end'));
+		  map.controls[google.maps.ControlPosition.TOP_LEFT].push(destino);
+
+		 searchBox1 = new google.maps.places.SearchBox(
+		    /** @type {HTMLInputElement} */(destino));
+	  
+	  
+	  
+
+  // [START region_getplaces]
+  // Listen for the event fired when the user selects an item from the
+  // pick list. Retrieve the matching places for that item.
+ 
+	google.maps.event.addListener(searchBox, 'places_changed', function() {
+			var places = searchBox.getPlaces();
+
+			if (places.length == 0) {
+				return;
+			}
+			for (var i = 0, marker; marker = markers[i]; i++) {
+				marker.setMap(null);
+			}
+
+			// For each place, get the icon, place name, and location.
+			markers = [];
+			var bounds = new google.maps.LatLngBounds();
+			for (var i = 0, place; place = places[i]; i++) {
+				var image = {
+					url : place.icon,
+					size : new google.maps.Size(71, 71),
+					origin : new google.maps.Point(0, 0),
+					anchor : new google.maps.Point(17, 34),
+					scaledSize : new google.maps.Size(25, 25)
+				};
+
+				// Create a marker for each place.
+				var marker = new google.maps.Marker({
+					map : map,
+					icon : image,
+					title : place.name,
+					
+					position : place.geometry.location
+					
+				});
+
+				markers.push(marker);
+
+				bounds.extend(place.geometry.location);
+			}
+
+			map.fitBounds(bounds);
+		});
+		// [END region_getplaces]
+
+		// Bias the SearchBox results towards places that are within the bounds of the
+		// current map's viewport.
+		google.maps.event.addListener(map, 'bounds_changed', function() {
+			var bounds = map.getBounds();
+			searchBox.setBounds(bounds);
+		});
+
+	}
+
+	function calcRoute() {
+		var start = document.getElementById('start').value;
+		var end = document.getElementById('end').value;
+		//var selectedMode = document.getElementById('mode').value;
+
+		var request = {
+			origin : start,
+			destination : end,
+			travelMode : google.maps.TravelMode.DRIVING
+		};
+		directionsService.route(request, function(response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setDirections(response);
+			}
+		});
+
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+</head>
+
+<body>
+
+ <img src="Cabezera_Ucatolica.JPG">
+ 
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+	
+	
+		
+		<input id="start" class="controls" type="text" placeholder="Origen"  style="font-size:12pt; color: green">
+		<input id="end" class="controls" type="text" placeholder="Destino"  style="font-size:12pt; color: red" >
+        <button id="button" onclick="calcRoute();"><img src="google_map.png"> </button>
+
+
+     <!--<b>Modo de viaje:</b> <select id="mode" onchange="calcRoute();">
+			<option value="DRIVING">Driving</option>
+			<option value="WALKING">Walking</option>
+			<option value="BICYCLING">Bicycling</option>
+			<option value="TRANSIT">Transit</option>
+		</select>-->
+		
+	<div id="map-canvas"></div>
+</body>
+</html>

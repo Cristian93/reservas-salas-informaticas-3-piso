@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Filtro - Reserva de salas informáticas 3° piso</title>
+        <style>
+            html  {
+                background: -webkit-linear-gradient(left top, #005399, #005399, white, #F6B511); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right,  #005399  ,#005399,white, #F6B511); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, #005399 ,#005399,white,#F6B511); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right,  #005399  ,#005399,white, #F6B511 ); /* Standard syntax (must be last) */
+            }
+            html {
+                height: 100%;
+            }
+        </style>
+        <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
+    </h:head>
+    <h:body>
+        <h2 style="text-align:center;color:#663300">Filtrar consulta de salas disponibles</h2>
+        <table width="45%" align="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <p:fieldset legend="Filtrar salas disponibles" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                       <div align="right">    <a href="home.xhtml"   >Cerrar Sesión </a> </div>
+                        <h:panelGrid columns="2" cellpadding="5">   
+                            <h:form id="form">
+                                <p:growl id="msgs" showDetail="true" />
+                                <p:spacer height="20" /><p:separator />
+                                <h:panelGrid columns="3" cellpadding="4" class="ui-grid"> 
+                                    <p:outputLabel for="multi" value="Asignatura:" />
+                               
+                                     <p:inputText />
+                                     <h2 style="color:red">*</h2>
+                                    <p:outputLabel for="multi" value="Grupo:" />
+                                     
+                                     <p:inputText />
+                                      <h2 style="color:red">*</h2>
+                                    <p:outputLabel for="multi" value="Fecha:" />
+                                   
+                                 
+                                     <p:calendar id="multi" value="#{FiltroBean.fecha}" pages="3" />
+                                      <h2 style="color:red">*</h2>
+                                    <p:outputLabel for="time" value="Hora:" />
+                                     
+                                    <p:calendar id="time" value="#{FiltroBean.hora}" pattern="HH:mm a" timeOnly="true"  />
+                                     <h2 style="color:red">*</h2>
+                                    <h:outputLabel for="minMax" value="Número de estudiantes: " />
+                                       
+                                   
+                                    <p:spinner id="minMax" value="#{FiltroBean.numero_estudiantes}" min="0" max="60" />
+               							 <h2 style="color:red">*</h2>
+               							
+ 						 <h2 style="color:red">*</h2>
+                       
+                                  <center> <p:button  value="Anexar" icon="ui-icon-folder-open" > </p:button></center>
+                                    <p:growl id="growl" life="2000" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="5">  
+                                    
+                                    <p:button outcome="perfil" value="Regresar" icon="ui-icon-arrowreturnthick-1-w" > </p:button> 
+                                    <p:button value="Filtar" icon="ui-icon-search" action ="#{Filtrobean.filtrar}" > </p:button> 
+                                    
+                                </h:panelGrid> 
+                                <p:spacer height="20" /><p:separator />
+
+                                <h6><strong>Sistema de reservas - Salas informáticas 3° piso.</strong></h6>
+                            </h:form>
+                            <h:graphicImage url="/filtrar_salas.png" /> 
+                        </h:panelGrid>
+                    </p:fieldset>
+                </td>
+            </tr>
+        </table>
+    </h:body>
+</html>

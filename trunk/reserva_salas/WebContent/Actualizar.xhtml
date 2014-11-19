@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+<f:metadata>
+        <f:event type="preRenderView" listener="#{ActualizarBean.ac}" />
+</f:metadata>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Filtro - Reserva de salas informáticas 3° piso</title>
+        <style>
+            html  {
+                background: -webkit-linear-gradient(left top, #005399, #005399, white, #F6B511); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right,  #005399  ,#005399,white, #F6B511); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, #005399 ,#005399,white,#F6B511); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right,  #005399  ,#005399,white, #F6B511 ); /* Standard syntax (must be last) */
+            }
+            html {
+                height: 100%;
+            }
+        </style>
+        <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
+    </h:head>
+    <h:body>
+        <h2 style="text-align:center;color:#663300">Actualización usuario</h2>
+        <table width="45%" align="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <p:fieldset legend="Actualizar usuario" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                      
+                      
+                       <h:form >
+                       <div align="right">   <p:commandButton id = "s" value="Cerrar sesión"  icon="ui-icon-person"   action="#{ActualizarBean.cerrar}" ajax="false"  />  </div>
+                       </h:form>
+                       
+                        <h:panelGrid columns="2" cellpadding="5"> 
+                          
+                            <h:form id="form">
+                                <p:growl id="msgs" showDetail="true" />
+                                <p:spacer height="20" /><p:separator />
+                                <h:panelGrid columns="2" cellpadding="5" class="ui-grid"> 
+                                     <p:outputLabel for="nombre" value="Nombre:" />
+                                    <p:inputText id="nombre"  value="#{ActualizarBean.nombre}"/>
+                                     <p:outputLabel for="apellido" value="Apellido:" />
+                                    <p:inputText id="apellido" value="#{ActualizarBean.apellido}"/>
+                                     <p:outputLabel for="correo" value="Correo:" />
+                                    <p:inputText id="correo" value="#{ActualizarBean.correo}"/>
+                                        
+                                    
+                                    <p:outputLabel for="pass" value="Contraseña actual:" />
+                                    <p:password id="pass" value="#{ActualizarBean.contrasena}" />
+                                    
+                                     <h:outputText value="Contraseña nueva:" />
+                                     <p:password id="feedback" feedback="true" value="#{ActualizarBean.contrasena1}"/>
+                                     
+                                    <p:outputLabel for="vuel" value="Vuelva a escribir la contraseña:" />
+                                    <p:password id="vuel" value="#{ActualizarBean.contrasena2}" />
+                                     <p:outputLabel value="Programa:" />
+                                     <p:selectOneMenu value="#{ActualizarBean.programa}">
+   			                         <f:selectItems value="#{ActualizarBean.listaprograma}" var="pro"
+   		                          	itemLabel="#{pro.nombreprograma}" itemValue="#{pro.idprograma}" />
+   		                            </p:selectOneMenu> 
+                   					   <p:outputLabel  value="Perfil:" />
+                   					   <p:selectOneMenu value="#{ActualizarBean.perfil}">
+   			                         <f:selectItems value="#{ActualizarBean.listaperfil}" var="per"
+   		                          	itemLabel="#{per.nombreperfil}" itemValue="#{per.idperfil}" />
+   		                            </p:selectOneMenu> 
+  									
+                                    <p:growl id="growl" life="2000" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="5">  
+                                   <p:button outcome="perfil" value="Regresar" icon="ui-icon-arrowreturnthick-1-w" > </p:button>
+                                 
+                                 <p:commandButton  id = "actualizar" value="Actualizar" action="#{ActualizarBean.actualizar}"  ajax="false"  />                               
+                                   
+                                </h:panelGrid> 
+                                <p:spacer height="20" /><p:separator />
+
+                                <h6><strong>Sistema de reservas - Salas informáticas 3° piso.</strong></h6>
+                            </h:form>
+                            <h:graphicImage url="/edit-user-512.gif" /> 
+                        </h:panelGrid>
+                    </p:fieldset>
+                </td>
+            </tr>
+        </table>
+    </h:body>
+</html>

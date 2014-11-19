@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+    version="2.1">
+    <lifecycle>
+       <phase-listener id="nocache">CacheControlPhaseListener</phase-listener>
+ </lifecycle>
+	<managed-bean>
+		<managed-bean-name>ReservaBean</managed-bean-name>
+		<managed-bean-class>bean.ReservaBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>HomeBean</managed-bean-name>
+		<managed-bean-class>bean.HomeBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ActualizarBean</managed-bean-name>
+		<managed-bean-class>bean.ActualizarBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>PerfilBean</managed-bean-name>
+		<managed-bean-class>bean.PerfilBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>RegistroBean</managed-bean-name>
+		<managed-bean-class>bean.RegistroBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>SalasBean</managed-bean-name>
+		<managed-bean-class>bean.SalasBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>FiltroBean</managed-bean-name>
+		<managed-bean-class>bean.FiltroBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	
+	
+</faces-config>
