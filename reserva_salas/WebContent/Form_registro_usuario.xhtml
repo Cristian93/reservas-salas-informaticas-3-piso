@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{RegistroBean.limpiar}"/>
+</f:metadata>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Registro de usuarios</title>
+        <style>
+      
+
+            html  {
+                background: -webkit-linear-gradient(left top, #005399, #005399, white, #F6B511); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right,  #005399  ,#005399,white, #F6B511); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, #005399 ,#005399,white,#F6B511); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right,  #005399  ,#005399,white, #F6B511 ); /* Standard syntax (must be last) */
+            }
+            html {
+                height: 100%;
+            }
+        </style>
+        <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
+        
+         <script>
+function myfunction(){
+	
+	document.getElementById("inombre").value="";	
+}
+
+</script>
+    
+    </h:head>
+    <h:body>
+
+        <table width="45%" align="center" border="0" cellspacing="0" cellpadding="0">
+          
+            <tr>
+                <td>
+                    <p:fieldset legend="Registro de usuario" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                        <h:panelGrid columns="2" cellpadding="5">   
+                            <h:form id="form" >
+                                <p:growl id="msgs" showDetail="true" />
+                                <p:spacer height="20" /><p:separator />
+                                
+                               
+                                   
+                                   <h:panelGrid columns="3" cellpadding="6" class="ui-grid"> 
+                                   
+                              
+                                    <h:outputText value="Nombre:" />
+                                    <p:inputText value="#{RegistroBean.nombre}" autocomplete="off" id="inombre"/> 
+                                    <h2 style="text-align:center;color:red">*</h2>
+                                    
+        
+                                    
+                                     <h:outputText value="Apellido:" />
+                                    <p:inputText id="apellido" value="#{RegistroBean.apellido}" autocomplete="off"/> 
+                                    <h2 style="text-align:center;color:red">*</h2>
+                                   
+                                   
+                                   
+                                     <h:outputText value="Correo: " />
+                                    <p:inputText id="correo" value="#{RegistroBean.correo1}" autocomplete="off"/> 
+                                    <h2 style="text-align:center;color:red">*</h2>
+                                    
+                                    
+                                     <h:outputText value="Confirme su correo: " />
+                                    <p:inputText id="correo2" value="#{RegistroBean.correo2}" autocomplete="off"/> 
+                                    <h2 style="text-align:center;color:red">*</h2>
+                                    
+                                      <h:outputText value="Contraseña:" />
+                                     <p:password id="feedback"  feedback="true" value="#{RegistroBean.contrasena1}" autocomplete="off"/>
+                                     <h2 style="text-align:center;color:red">*</h2>
+                                     
+                                     
+                                    <h:outputText value="Confirme la contraseña:" />
+                                    <p:password id="vuel" value="#{RegistroBean.contrasena2}" autocomplete="off" />
+                                     <h2 style="text-align:center;color:red">*</h2>
+                                     
+                                     
+                             
+                   		  <p:outputLabel  value="Programa:"/>   	                            
+  					       <p:selectOneMenu value="#{RegistroBean.programa}">
+   			               <f:selectItems value="#{RegistroBean.listaprograma}" var="c"
+   		                   	itemLabel="#{c.nombreprograma}" itemValue="#{c.idprograma}" />
+   		                   </p:selectOneMenu>           
+                   			<h2 style="text-align:center;color:red">*</h2>
+  					 
+  					 
+  					   <p:outputLabel  value="Perfil:"/>   	                            
+  					       <p:selectOneMenu value="#{RegistroBean.perfil}">
+   			               <f:selectItems value="#{RegistroBean.listaperfil}" var="d"
+   		                   	itemLabel="#{d.nombreperfil}" itemValue="#{d.idperfil}" />
+   		                   </p:selectOneMenu>           
+                   			<h2 style="text-align:center;color:red">*</h2>
+  					 
+  					         
+                                    </h:panelGrid>
+                        
+
+                                    <p:growl id="growl" life="2000" />
+                                
+                                <h:panelGrid columns="2" cellpadding="6">  
+                                    
+                                   <p:commandButton  id = "W" value="Regresar" icon="ui-icon-arrowreturnthick-1-w"  action="#{RegistroBean.reset}" ajax="false"/> 
+                                     
+       								 
+       								 <p:commandButton  id = "s" value="Crear usuario" icon="ui-icon-star"   action="#{RegistroBean.agregar}"  ajax="false"  /> 
+    								 
+                                    
+                                </h:panelGrid> 
+                                <p:spacer height="20" /><p:separator />
+
+                                <h6><strong>Sistema de reservas - Salas informáticas 3° piso.</strong></h6>
+                            </h:form>
+                           
+                            <h:graphicImage url="/user_add.png" /> 
+                        </h:panelGrid>
+                    </p:fieldset>
+                </td>
+            </tr>
+        </table>
+        
+        
+    </h:body>
+</html>

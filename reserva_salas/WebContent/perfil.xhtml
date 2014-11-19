@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+   <f:metadata>
+        <f:event type="preRenderView" listener="#{PerfilBean.cargar}" />
+</f:metadata>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Perfil De Usuario</title>
+        <style>
+            html {
+                background: -webkit-linear-gradient(left top, #005399, #005399, white, #F6B511); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right,  #005399  ,#005399,white, #F6B511); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, #005399 ,#005399,white,#F6B511); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right,  #005399  ,#005399,white, #F6B511 ); /* Standard syntax (must be last) */
+            }
+            html {
+                height: 100%;
+            }
+        </style>
+        <h:graphicImage url="/Cabezera_Ucatolica.JPG" /> 
+    </h:head>
+    <h:body>
+        <h2 style="text-align:center;color:#663300">Perfil De Usuario</h2>
+        <table width="65%" align="center" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <p:fieldset legend="Perfil De Usuario" style="font-weight:bold; color:#000000;margin-bottom:20px; border:6px groove #ccc; background:#D8D8D8 ;">
+                        <div align="center"> 
+                            <div align="right">    <p:commandButton value="Cerrar sesión"  icon="ui-icon-person"   action="#{PerfilBean.cerrar}"/>  </div>
+                        <h:panelGrid columns="2"   cellpadding="5">
+                             
+                             
+                             <h:graphicImage url="/user-icon.jpg"  width = "220" height = "220" style="border:2px solid black"/> 
+                             <h:form>
+                                 
+                                
+                                   
+                                <p:separator />
+                                
+                                <h:panelGrid columns="1" cellpadding="4">
+                                    <h:outputText value="#{PerfilBean.nombre} " />    
+                                    <h:outputText value="#{PerfilBean.correo} " /> 
+                                    <h:outputText value="#{PerfilBean.programa} " /> 
+                                    <h:outputText value="#{PerfilBean.perfil} " /> 
+                                    <h:panelGrid columns="2" cellpadding="2">
+                                        <h:graphicImage url="/icono-editar.png"  width = "40" height = "40"/> 
+                                        <a href="Actualizar.xhtml">Actualizar Datos De Usuario</a>
+                                    </h:panelGrid>
+                                     <p:separator />    
+                                </h:panelGrid>
+                               
+                               
+                            </h:form>
+                         
+                        </h:panelGrid> 
+                          <div>   </div>
+                         <p:separator />
+                        <h:panelGrid columns="1"   cellpadding="6">
+                             
+               
+                                 
+                                  
+             <p:dataTable value="#{PerfilBean.listareserva}" var="o" paginator="true" rows="10"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="3,5,10" widgetVar="10" style="width:800px;" >
+                <f:facet name="header">  
+                  Mis Reservas
+                </f:facet>
+                 <p:column  >
+                    <f:facet name="header">  
+                        <h:outputText value="Sala" />  
+                    </f:facet>
+                    <h:outputText value="#{o.sala.idsala}"/>
+                </p:column>
+                 <p:column >
+                    <f:facet name="header">  
+                        <h:outputText value="Fecha De La Reserva" />  
+                    </f:facet>
+                    <h:outputText value="#{o.fechareserva.toLocaleString().substring(0, 10).trim( )}"/>
+                </p:column>
+                <p:column  >
+                    <f:facet name="header">  
+                        <h:outputText value="Hora De La Reserva" />  
+                    </f:facet>
+                    <h:outputText value="#{o.horareserva}"/>
+                </p:column>
+                <p:column  >
+                    <f:facet name="header">  
+                        <h:outputText value="Numero De Estudiantes" />  
+                    </f:facet>
+                    <h:outputText value="#{o.numeroestudiantes}"/>
+                </p:column>
+                
+                <p:column  >
+                    <f:facet name="header">  
+                        <h:outputText value="Clase" />  
+                    </f:facet>
+                    <h:outputText value="#{o.asignatura}"/>
+                </p:column>
+                <p:column  >
+                    <f:facet name="header">  
+                        <h:outputText value="Grupo" />  
+                    </f:facet>
+                    <h:outputText value="#{o.grupo}"/>
+                </p:column>
+                
+                
+               
+            </p:dataTable>
+                            
+                        </h:panelGrid>
+                         
+                        <p:spacer height="20" /><p:separator />
+                        <h:panelGrid columns="2" cellpadding="2">
+                            <h:panelGrid columns="2" cellpadding="2">
+                            
+                            
+                            
+                                    <h:graphicImage url="/add.png"  width = "40" height = "40"/> 
+                                    <a href="filtrar_salas_xhtml.xhtml">Crear Reserva</a>          
+                            </h:panelGrid>
+                            
+                            
+                                              
+                        </h:panelGrid>
+                        </div>
+                        <p:separator />
+                         <h6><strong>Sistema de reservas - Salas informáticas 3° piso.</strong></h6>
+                    </p:fieldset>
+                </td>
+                
+                
+            </tr>
+            <tr>
+                
+            </tr>
+        </table>
+    </h:body>
+</html>
