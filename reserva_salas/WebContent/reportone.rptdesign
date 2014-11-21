@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.4.1.v201408290142 Build &lt;4.4.1.v20140916-1320></property>
-    <list-property name="propertyBindings">
-        <structure>
-            <property name="name">queryText</property>
-            <property name="id">8</property>
-        </structure>
-        <structure>
-            <property name="name">queryTimeOut</property>
-            <property name="id">8</property>
-        </structure>
-        <structure>
-            <property name="name">rowFetchSize</property>
-            <property name="id">8</property>
-        </structure>
-    </list-property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="layoutPreference">auto layout</property>
@@ -50,15 +36,24 @@
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">nombresala</property>
+                    <property name="analysis">dimension</property>
                     <text-property name="displayName">nombresala</text-property>
                     <text-property name="heading">nombresala</text-property>
                 </structure>
                 <structure>
+                    <property name="columnName">idsala</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">idsala</text-property>
+                    <text-property name="heading">idsala</text-property>
+                </structure>
+                <structure>
                     <property name="columnName">count(*)</property>
+                    <property name="analysis">measure</property>
                     <text-property name="displayName">count(*)</text-property>
                     <text-property name="heading">count(*)</text-property>
                 </structure>
             </list-property>
+            <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
@@ -68,6 +63,11 @@
                     </structure>
                     <structure>
                         <property name="position">2</property>
+                        <property name="name">idsala</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
                         <property name="name">count(*)</property>
                         <property name="dataType">decimal</property>
                     </structure>
@@ -84,13 +84,20 @@
                 </structure>
                 <structure>
                     <property name="position">2</property>
+                    <property name="name">idsala</property>
+                    <property name="nativeName">idsala</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
                     <property name="name">count(*)</property>
                     <property name="nativeName">count(*)</property>
                     <property name="dataType">decimal</property>
                     <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[select nombresala, count(*) from sala, reserva where reserva.sala_idsala=sala.idsala group by sala_idsala;]]></xml-property>
+            <xml-property name="queryText"><![CDATA[select nombresala,  idsala, count(*) from sala, reserva where reserva.sala_idsala=sala.idsala group by sala_idsala;]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -466,6 +473,33 @@
       <Direction>-51.0</Direction>
     </Background>
     <Visible>true</Visible>
+    <Triggers>
+      <Condition>onclick</Condition>
+      <Action>
+        <Type>URL_Redirect</Type>
+        <Value xsi:type="attribute:MultiURLValues">
+          <PropertiesMap>
+            <Key>MenuItem</Key>
+            <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+          </PropertiesMap>
+          <PropertiesMap>
+            <Key>Menu</Key>
+            <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+          </PropertiesMap>
+          <PropertiesMap>
+            <Key>OnMouseOut</Key>
+            <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+          </PropertiesMap>
+          <PropertiesMap>
+            <Key>OnMouseOver</Key>
+            <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+          </PropertiesMap>
+        </Value>
+      </Action>
+    </Triggers>
+    <Cursor>
+      <Type>Auto</Type>
+    </Cursor>
   </Block>
   <Dimension>Two_Dimensional_With_Depth</Dimension>
   <Units>Points</Units>
@@ -598,6 +632,9 @@
       <SeriesDefinitions>
         <Query>
           <Definition></Definition>
+          <Grouping>
+            <GroupType>Numeric</GroupType>
+          </Grouping>
         </Query>
         <SeriesPalette>
           <Entries xsi:type="attribute:ColorDefinition">
@@ -840,10 +877,65 @@
           <Triggers>
             <Condition>onmouseover</Condition>
             <Action>
-              <Type>Show_Tooltip</Type>
-              <Value xsi:type="attribute:TooltipValue">
-                <Text></Text>
-                <Delay>200</Delay>
+              <Type>URL_Redirect</Type>
+              <Value xsi:type="attribute:MultiURLValues">
+                <PropertiesMap>
+                  <Key>MenuItem</Key>
+                  <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>Menu</Key>
+                  <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOut</Key>
+                  <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOver</Key>
+                  <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+                </PropertiesMap>
+              </Value>
+            </Action>
+          </Triggers>
+          <Triggers>
+            <Condition>onclick</Condition>
+            <Action>
+              <Type>URL_Redirect</Type>
+              <Value xsi:type="attribute:MultiURLValues">
+                <URLValues>
+                  <Label>
+                    <Caption>
+                      <Value>Reporte Sala</Value>
+                    </Caption>
+                  </Label>
+                  <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>reporttwo.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+&lt;/structure>
+</BaseUrl>
+                  <BaseParameterName></BaseParameterName>
+                  <ValueParameterName>row[&quot;idsala&quot;]</ValueParameterName>
+                  <SeriesParameterName></SeriesParameterName>
+                </URLValues>
+                <PropertiesMap>
+                  <Key>MenuItem</Key>
+                  <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>Menu</Key>
+                  <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOut</Key>
+                  <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOver</Key>
+                  <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+                </PropertiesMap>
               </Value>
             </Action>
           </Triggers>
@@ -1253,6 +1345,30 @@
       <Visible>true</Visible>
     </Label>
     <LabelPosition>Below</LabelPosition>
+    <Triggers>
+      <Condition>onclick</Condition>
+      <Action>
+        <Type>URL_Redirect</Type>
+        <Value xsi:type="attribute:MultiURLValues">
+          <PropertiesMap>
+            <Key>MenuItem</Key>
+            <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+          </PropertiesMap>
+          <PropertiesMap>
+            <Key>Menu</Key>
+            <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+          </PropertiesMap>
+          <PropertiesMap>
+            <Key>OnMouseOut</Key>
+            <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+          </PropertiesMap>
+          <PropertiesMap>
+            <Key>OnMouseOver</Key>
+            <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+          </PropertiesMap>
+        </Value>
+      </Action>
+    </Triggers>
     <MajorGrid>
       <LineAttributes>
         <Style>Solid</Style>
@@ -1344,6 +1460,22 @@
 </model:ChartWithAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
+            <list-property name="action">
+                <structure>
+                    <property name="targetWindow">_self</property>
+                    <property name="linkType">drill-through</property>
+                    <property name="targetFileType">report-design</property>
+                    <property name="reportName">reporttwo.rptdesign</property>
+                    <list-property name="paramBindings">
+                        <structure>
+                            <property name="paramName">__htmlPagination</property>
+                            <simple-property-list name="expression">
+                                <value type="javascript">row["idsala"]</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
             <property name="inheritColumns">true</property>
             <property name="height">5.447916666666667in</property>
             <property name="width">14.15625in</property>
@@ -1353,6 +1485,12 @@
                     <property name="name">nombresala</property>
                     <expression name="expression" type="javascript">dataSetRow["nombresala"]</expression>
                     <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">idsala</property>
+                    <expression name="expression" type="javascript">dataSetRow["idsala"]</expression>
+                    <property name="dataType">integer</property>
+                    <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">count(*)</property>
