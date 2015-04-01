@@ -79,7 +79,7 @@ function generarConexion() {
         }
     
          
-            $nuevoarchivo = fopen("CONEXION/conexion.php", "w+");
+            $nuevoarchivo = fopen("CONEXION/Conexion.php", "w+");
             fwrite($nuevoarchivo, "<?php\n\n" . "class $may" . "DTO" . "{\n\n");
            
            // print_r($table_fields);
