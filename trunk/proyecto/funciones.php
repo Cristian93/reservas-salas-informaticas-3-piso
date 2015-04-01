@@ -153,6 +153,26 @@ function prueba (){
         $query = $connection->prepare($sql);
         $query->execute(array(':id'=>$id,':name'=>$name,':state'=>$state));
     echo(934);
+    
+    
+    /*
+ $dbhost     = "localhost";
+        $dbname     = "mydatabase";
+        $dbuser     = "root";
+        $dbpass     = "";        
+        // database connection
+        $connection = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
+        // data to be updated in id 1
+        $title = 'Php Books';
+        $author = 'Hiren';
+        $id = 1;
+        // query
+        $sql = "UPDATE books SET title=?, author=? WHERE id=?";
+        $query = $connection->prepare($sql);
+        $query->execute(array($title,$author,$id));
+     * 
+     * 
+     *      */
 }
              
             
