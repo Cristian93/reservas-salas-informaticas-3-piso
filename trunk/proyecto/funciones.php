@@ -139,19 +139,20 @@ function generarConexion() {
 function prueba (){
     
      $dbhost     = "localhost";
-        $dbname     = "mydatabase";
+        $dbname     =   "dbingweb";
         $dbuser     = "root";
-        $dbpass     = "";        
+        $dbpass     = "root";        
         // database connection
         $connection = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
          
         // new data
-        $title = 'Php Pamplates';
-        $author = 'Kishor';
-        $sql = "INSERT INTO books (title,author) VALUES (:title,:author)";
+        $id =null;
+        $name = 'wrestlemania';
+        $state= 1;
+        $sql = "INSERT INTO country (id,name,state) VALUES (:id,:name,:state)";
         $query = $connection->prepare($sql);
-        $query->execute(array(':author'=>$author,':title'=>$title));
-    
+        $query->execute(array(':id'=>$id,':name'=>$name,':state'=>$state));
+    echo(934);
 }
              
             
