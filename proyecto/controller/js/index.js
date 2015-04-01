@@ -109,7 +109,6 @@ function prueba(){
         type: "POST",
         data: {
            tipo:"prueba"
-          
              
         },
         beforeSend: function (xhr) {
