@@ -35,7 +35,7 @@ function onLoad() {
 
 
 function generarDTO(){
-    alert ( getRadioButtonSelectedValue(  document.form2.radgroup2)   );
+   // alert ( getRadioButtonSelectedValue(  document.form2.radgroup2)   );
     
     $.ajax({
         url: "funciones.php",
@@ -50,7 +50,7 @@ function generarDTO(){
 
         },
         success: function (data) {
-                   alert( data );
+           //        alert( data );
         
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -65,7 +65,7 @@ function generarDTO(){
 
 
 function generarConexion(){
-    alert ( getRadioButtonSelectedValue(  document.form2.radgroup2)   );
+    alert ( getRadioButtonSelectedValue(  document.form2.radgroup3)   );
     
     $.ajax({
         url: "funciones.php",
@@ -73,14 +73,14 @@ function generarConexion(){
         type: "POST",
         data: {
            tipo:"generarConexion",
-           val1: getRadioButtonSelectedValue(  document.form2.radgroup2)
+           val1: getRadioButtonSelectedValue(  document.form2.radgroup3)
              
         },
         beforeSend: function (xhr) {
 
         },
         success: function (data) {
-                   alert( data );
+                //   alert( data );
         
         },
         error: function (jqXHR, textStatus, errorThrown) {

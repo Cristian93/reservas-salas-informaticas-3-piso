@@ -3,7 +3,7 @@
 class conexionprueba {
 
     private $DBH;
-    private $sentencia;
+    private $statement;
 
     function setMysql($host, $dbname, $user, $pass) {
 
@@ -31,18 +31,18 @@ class conexionprueba {
 
     function execute() {
 
-        $f = $this->DBH->prepare($this->sentencia);
+        $f = $this->DBH->prepare($this->statement);
         $f->execute();
         $result = $f->fetchAll();
         return $result;
     }
 
     function getStatement() {
-        return $this->sentencia;
+        return $this->statement;
     }
 
-    function setStatement($sentencia) {
-        $this->sentencia = $sentencia;
+    function setStatement($statement) {
+        $this->statement = $statement;
     }
 
 }

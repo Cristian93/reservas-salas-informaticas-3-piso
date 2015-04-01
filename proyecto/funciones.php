@@ -80,7 +80,7 @@ function generarConexion() {
     
          
             $nuevoarchivo = fopen("CONEXION/Conexion.php", "w+");
-            fwrite($nuevoarchivo, "<?php\n\n" . "class $may" . "DTO" . "{\n\n");
+            fwrite($nuevoarchivo, "<?php\n\n" . "class conexion" . "DTO" . "{\n\n");
            
            // print_r($table_fields);
          
@@ -91,7 +91,8 @@ function generarConexion() {
             fwrite($nuevoarchivo, "}");
             fclose($nuevoarchivo);
         
-    
 
 }
 
+
+    

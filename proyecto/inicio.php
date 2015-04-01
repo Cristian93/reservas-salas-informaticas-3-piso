@@ -109,6 +109,15 @@ readfile("inicio.php");
                     <h4>Lista De Base De Datos</h4>
                     <br>
                     <form name="form2">
+                        
+                        
+                         
+                        <label align="center" class="tipoDB"><input type="radio" name="radgroup3" value="mysql">MySQL</label>
+                        <label align="center" class="tipoDB"><input type="radio" name="radgroup3" value="oracle">ORACLE</label>
+                        <br>
+                         
+                        
+                        
                         <?php
                         $usuario = 'root';
                         $password = 'root';
