@@ -37,13 +37,13 @@ readfile("inicio.php");
 ?>
 <body onload="<?php myfnc(); ?>">    
         <div>
-            <h1>Generador de DAO's  &  DTO's</h1>
+            <h1>Generado de DAO's  &  DTO's</h1>
 
         </div>
         <div class="row">
             <div class="col-xs-6" >
 
-                <div class="bs-callout bs-callout-danger" style="height:500px;">
+                <div class="bs-callout bs-callout-danger" style="height:700px;">
                     <h4>Cargar Script</h4>
                     <br>
 
@@ -67,6 +67,37 @@ readfile("inicio.php");
                         <input align="middle"type="submit" value="Enviar archivo" />
 
 <a href="descargar.php">Download my huge document (PDF)</a>
+
+
+    <div id="subir">
+        <br/>
+        <br>
+        <br>
+        
+        holasasdsdsd
+        
+        
+        dsdsdsdsdsd
+    </div>
+ <div id="">
+     <br>
+     <br>
+     
+        holasasdsdsd
+        
+    </div>
+ <div id="">
+     <br>
+     <br>
+     <br>
+        holasasdsdsd
+        
+    </div>
+ <div id="">
+        
+        holasasdsdsd
+        
+    </div>
                     </form>
                 </div>
 
@@ -74,7 +105,7 @@ readfile("inicio.php");
             </div>
             <div class="col-xs-6">
 
-                <div class="bs-callout bs-callout-primary" style="height:500px;">
+                <div class="bs-callout bs-callout-primary" style="height:700px;">
                     <h4>Lista De Base De Datos</h4>
                     <br>
                     <form name="form2">
@@ -92,15 +123,18 @@ readfile("inicio.php");
                         }
                         ?>
 
-                    </form>
+          </form>
                     <div class="centered"> <button align="center" type="button" class="btn btn-default btn-lg text-center" onclick="generarDTO();generarConexion();">
                             <span class="glyphicon glyphicon-random" aria-hidden="true"></span>  Generar</button>
                     </div>
-                </div>
-
-
-            </div>
-        </div>  
+                    
+                    
+                    
+                    
+                    
+  
+    
+    
         <footer>
             <h4   class="parrafo" align="center">Generador DAO's Y DTO's  2015 
             </h4>
