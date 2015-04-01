@@ -49,7 +49,7 @@ readfile("inicio.php");
 
                     <form>
                         <label class="tipoDB"><input type="radio" name="radgroup1" value="mysql">MySQL</label>
-                        <label class="tipoDB"><input type="radio" name="radgroup1" value="oracle">ORACLE</label>
+                        <label class="tipoDB"><input type="radio" name="radgroup1" value="sqlite">SQLite</label>
 
                     </form>
                     <br>
@@ -113,7 +113,7 @@ readfile("inicio.php");
                         
                          
                         <label align="center" class="tipoDB"><input type="radio" name="radgroup3" value="mysql">MySQL</label>
-                        <label align="center" class="tipoDB"><input type="radio" name="radgroup3" value="oracle">ORACLE</label>
+                        <label align="center" class="tipoDB"><input type="radio" name="radgroup3" value="sqlite">SQLite</label>
                         <br>
                          
                         
@@ -138,7 +138,7 @@ readfile("inicio.php");
                     </div>
                     
                     
-                    
+                  </div>    
                     
                     
   

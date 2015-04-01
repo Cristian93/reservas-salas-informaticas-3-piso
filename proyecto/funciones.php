@@ -80,19 +80,63 @@ function generarConexion() {
     
          
             $nuevoarchivo = fopen("CONEXION/Conexion.php", "w+");
-            fwrite($nuevoarchivo, "<?php\n\n" . "class conexion" . "DTO" . "{\n\n");
-           
-           // print_r($table_fields);
-         
-           
-           
+            fwrite($nuevoarchivo, "<?php\n\n class conexion {\n\n");
+            fwrite($nuevoarchivo,  "    private $". "DBH; \n    private $" .  "statement;\n\n");
+          
+           if ($_REQUEST["val1"] === "mysql") {
+               
+             fwrite($nuevoarchivo,    '
+    function setMysql($host, $dbname, $user, $pass) { 
+                   $this->DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    }
+    
+    function getMysql() {
+                return $this->DBH;
+    }');
+           }elseif ($_REQUEST["val1"] === "sqlite") {
+               
+               fwrite($nuevoarchivo,    '
+    function setSQLite($database) {
+    
+        $this->DBH = new PDO("sqlite:my/database/path/" . $database . ".db");
+    }   
+        
+    function getSQLite() {
+
+        return $this->DBH;
+    }
+ ');
+               
+           }
+              fwrite($nuevoarchivo,    '
+    function close() {
+
+        $this->DBH = null;
+    }
+
+    function execute() {
+
+        $f = $this->DBH->prepare($this->statement);
+        $f->execute();
+        $result = $f->fetchAll();
+        return $result;
+    }
+
+    function getStatement() {
+        return $this->statement;
+    }
+
+    function setStatement($statement) {
+        $this->statement = $statement;
+    } ');
+             fwrite($nuevoarchivo, "   \n}");
+            fclose($nuevoarchivo);  
+           }
              
-             
-            fwrite($nuevoarchivo, "}");
-            fclose($nuevoarchivo);
+            
         
 
-}
+
 
 
     

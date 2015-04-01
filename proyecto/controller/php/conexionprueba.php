@@ -5,7 +5,7 @@ class conexionprueba {
     private $DBH;
     private $statement;
 
-    function setMysql($host, $dbname, $user, $pass) {
+   function setMysql($host, $dbname, $user, $pass) { 
 
         $this->DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     }
