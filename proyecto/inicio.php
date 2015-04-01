@@ -34,7 +34,7 @@ readfile("inicio.php");
         }
     }
 
-php?>
+?>
 <body onload="<?php myfnc(); ?>">    
         <div>
             <h1>Generador de DAO's  &  DTO's</h1>
@@ -93,7 +93,7 @@ php?>
                         ?>
 
                     </form>
-                    <div class="centered"> <button align="center" type="button" class="btn btn-default btn-lg text-center" onclick="mostrarTablas();">
+                    <div class="centered"> <button align="center" type="button" class="btn btn-default btn-lg text-center" onclick="generarDTO();generarConexion();">
                             <span class="glyphicon glyphicon-random" aria-hidden="true"></span>  Generar</button>
                     </div>
                 </div>
