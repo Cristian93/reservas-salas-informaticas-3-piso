@@ -138,19 +138,7 @@ function generarConexion() {
            
 function prueba (){
     
-     $dbhost     = "localhost";
-        $dbname     = "mydatabase";
-        $dbuser     = "root";
-        $dbpass     = "";        
-        // database connection
-        $connection = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
-         
-        // new data
-        $title = 'Php Pamplates';
-        $author = 'Kishor';
-        $sql = "INSERT INTO books (title,author) VALUES (:title,:author)";
-        $query = $connection->prepare($sql);
-        $query->execute(array(':author'=>$author,':title'=>$title));
+    echo "f";
     
 }
              

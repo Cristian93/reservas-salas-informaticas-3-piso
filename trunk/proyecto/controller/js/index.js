@@ -101,6 +101,32 @@ function getRadioButtonSelectedValue(ctrl)
 
 
 
+function prueba(){
+   
+    $.ajax({
+        url: "http://localhost/proyecto/controller/php/funciones.php",
+        dataType: "html",
+        type: "POST",
+        data: {
+           tipo:"prueba"
+          
+             
+        },
+        beforeSend: function (xhr) {
+
+        },
+        success: function (data) {
+               alert (data)  ;      
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+        },
+        complete: function (jqXHR, textStatus) {
+
+        }
+    });
+    
+}
 
 
 

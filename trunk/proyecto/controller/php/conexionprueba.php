@@ -1,5 +1,15 @@
-<?php
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">        
+        <title></title>
+    </head>
+ <script src="http://localhost/proyecto/controller/js/jquery-1.11.2.min.js"></script>
+    <script src="http://localhost/proyecto/controller/js/index.js"></script>
+
+<body>    
+    <!--/*
 class conexionprueba {
 
     private $DBH;
@@ -46,3 +56,14 @@ class conexionprueba {
     }
 
 }
+*/
+
+-->
+ 
+                    <div  > <button align="center" type="button" onclick="prueba();">
+                            <span ></span>  BASE DE DATOS</button>
+                    </div>
+     
+
+    </body>
+</html>
