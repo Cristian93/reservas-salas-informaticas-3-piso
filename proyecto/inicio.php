@@ -23,9 +23,19 @@ readfile("inicio.php");
 
 }
 
+    function myfnc() {
+        $ficheroseliminados = 0;
+        $dir = "DTO/";
+        $handle = opendir($dir);
+        while ($file = readdir($handle)) {
+            if (is_file($dir . $file))
+                if (unlink($dir . $file))
+                    $ficheroseliminados++;
+        }
+    }
 
 php?>
-    <body>      
+<body onload="<?php myfnc(); ?>">    
         <div>
             <h1>Generador de DAO's  &  DTO's</h1>
 

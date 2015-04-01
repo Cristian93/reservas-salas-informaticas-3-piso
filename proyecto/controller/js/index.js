@@ -49,7 +49,7 @@ function mostrarTablas(){
 
         },
         success: function (data) {
-                      alert( data );
+                   //   alert( data );
         
         },
         error: function (jqXHR, textStatus, errorThrown) {
