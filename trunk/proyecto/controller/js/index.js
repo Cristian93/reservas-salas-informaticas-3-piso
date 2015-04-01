@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
 });
@@ -33,7 +34,7 @@ function onLoad() {
 }
 
 
-function mostrarTablas(){
+function generarDTO(){
     alert ( getRadioButtonSelectedValue(  document.form2.radgroup2)   );
     
     $.ajax({
@@ -41,7 +42,7 @@ function mostrarTablas(){
         dataType: "html",
         type: "POST",
         data: {
-           tipo:"mostrartablas",
+           tipo:"generarDto",
             val1: getRadioButtonSelectedValue(  document.form2.radgroup2)
              
         },
@@ -49,7 +50,7 @@ function mostrarTablas(){
 
         },
         success: function (data) {
-                   //   alert( data );
+                   alert( data );
         
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -62,6 +63,35 @@ function mostrarTablas(){
     
 }
 
+
+function generarConexion(){
+    alert ( getRadioButtonSelectedValue(  document.form2.radgroup2)   );
+    
+    $.ajax({
+        url: "funciones.php",
+        dataType: "html",
+        type: "POST",
+        data: {
+           tipo:"generarConexion",
+           val1: getRadioButtonSelectedValue(  document.form2.radgroup2)
+             
+        },
+        beforeSend: function (xhr) {
+
+        },
+        success: function (data) {
+                   alert( data );
+        
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+        },
+        complete: function (jqXHR, textStatus) {
+
+        }
+    });
+    
+}
 
 function getRadioButtonSelectedValue(ctrl)
 {

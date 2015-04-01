@@ -1,13 +1,17 @@
 <?php
 
 if (isset($_REQUEST["tipo"])) {
-    if( $_REQUEST["tipo"] ==="mostrartablas"){
-        list_tables();
+    if( $_REQUEST["tipo"] ==="generarDto"){
+        generarDto();
+    }
+    if( $_REQUEST["tipo"] ==="generarConexion"){
+        generarConexion();
     }
      
 }
 
-function list_tables() {
+function generarDto() {
+  
     $ficheroseliminados= 0;
     $dir = "DTO/";
         $handle = opendir($dir);
@@ -61,3 +65,33 @@ function list_tables() {
     }
     echo $lista;
 }
+
+
+function generarConexion() {
+  
+    $ficheroseliminados= 0;
+    $dir = "CONEXION/";
+        $handle = opendir($dir);
+        while ($file = readdir($handle)) {
+            if (is_file($dir . $file))
+                if (unlink($dir . $file))
+                    $ficheroseliminados++;
+        }
+    
+         
+            $nuevoarchivo = fopen("CONEXION/conexion.php", "w+");
+            fwrite($nuevoarchivo, "<?php\n\n" . "class $may" . "DTO" . "{\n\n");
+           
+           // print_r($table_fields);
+         
+           
+           
+             
+             
+            fwrite($nuevoarchivo, "}");
+            fclose($nuevoarchivo);
+        
+    
+
+}
+
