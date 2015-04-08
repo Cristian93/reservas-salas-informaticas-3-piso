@@ -24,7 +24,7 @@ function onLoad() {
     },
     
     error: function (jqXHR, textStatus, errorThrown) {
-              $("#dive").html("gono");
+              $("#dive").html("");
     }
     
     
