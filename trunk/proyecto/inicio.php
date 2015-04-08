@@ -72,32 +72,16 @@ readfile("inicio.php");
 
 
     <div id="subir">
-        <br/>
-        <br>
-        <br>
-        
-        holasasdsdsd
-        
-        
-        dsdsdsdsdsd
+       
     </div>
  <div id="generar">
-     <br>
-     <br>
      
-        holasasdsdsd
-        
     </div>
  <div id="">
-     <br>
-     <br>
-     <br>
-        holasasdsdsd
-        
-    </div>
+    
  <div id="">
         
-        holasasdsdsd
+      
         
     </div>
                     </form>
