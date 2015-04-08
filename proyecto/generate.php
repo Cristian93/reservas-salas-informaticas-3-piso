@@ -5,11 +5,11 @@
 <body>
 <?php
   //leer archivos
- $fichero_texto = fopen ("controller/files/SCRIPT.txt", "r");
+ $fichero_texto = fopen ("controller/files/SCRIPTAPL.txt", "r");
    //obtenemos de una sola vez todo el contenido del fichero
    //OJO! Debido a filesize(), sólo funcionará con archivos de texto
-   $contenido_fichero = fread($fichero_texto, filesize("controller/files/SCRIPT.txt"));
-   $v=file("controller/files/SCRIPT.txt");
+   $contenido_fichero = fread($fichero_texto, filesize("controller/files/SCRIPTAPL.txt"));
+   $v=file("controller/files/SCRIPTAPL.txt");
    $cantidad = count($v);
    $ot=0;
    $aux=0;

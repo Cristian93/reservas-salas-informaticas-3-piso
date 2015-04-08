@@ -5,34 +5,79 @@ $(document).ready(function () {
 
 
 function onLoad() {
- 
-    $.ajax({
+     
+    
    
-    url:"subir.php",
-    type:"POST",
-    dataType:"html",
-    data:{
-        tipo:"submit"
+        var formData = new FormData($(".formulario")[0]);
+        var message = ""; 
+        //hacemos la petición ajax  
+        $.ajax({
+            url: 'controller/php/upload.php',  
+            type: 'POST',
+            // Form data
+            //datos del formulario
+            data:formData,
+            //necesario para subir archivos via ajax
+            cache: false,
+            contentType: false,
+            processData: false,
+            //mientras enviamos el archivo
+            beforeSend: function(){
+                
+                     
+            },
+            //una vez finalizado correctamente
+            success: function(data){
+               
+                
+                
+                
+                    $("#subir").html(data);
+                
+            },
+            //si ha ocurrido un error
+            error: function(){
+                
+            }
         
-         
-    },
-    beforeSend: function (xhr) {
         
-    },
-    success: function (data) {
-            $("#dive").html(data);
-    },
-    
-    error: function (jqXHR, textStatus, errorThrown) {
-              $("#dive").html("");
-    }
-    
-    
-    
-    
-});
+    });
 }
-
+function Ongenerate(){
+    
+    alert("changillos");
+     $.ajax({
+            url: 'controller/php/request.php',  
+            type: 'POST',
+            data:{
+                tipo:"generar"
+            },
+            //mientras enviamos el archivo
+            beforeSend: function(){
+                
+                     
+            },
+            //una vez finalizado correctamente
+            success: function(data){
+               
+                
+                
+                
+                    $("#generar").html(data);
+                
+            },
+            //si ha ocurrido un error
+            error: function(){
+                
+            }
+        
+        
+    });
+    
+    
+    
+    
+}
 
 function generarDTO(){
    // alert ( getRadioButtonSelectedValue(  document.form2.radgroup2)   );

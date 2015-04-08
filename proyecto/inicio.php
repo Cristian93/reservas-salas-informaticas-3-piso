@@ -62,17 +62,11 @@ readfile("inicio.php");
                     </form>
                     <br>
                     <!-- El tipo de codificación de datos, enctype, se DEBE especificar como a continuación -->
-                    <form enctype="multipart/form-data" action="subir.php" method="POST">
-
-                        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-
-                        Cargar archivo:
-                        <br>
-
-                        <br>
-                        <input name="userfile" type="file" />
-                        <br>
-                        <input align="middle"type="submit" value="Enviar archivo" />
+                    <form enctype="multipart/form-data" class="formulario">
+        <label>Subir un archivo</label><br />
+        <input name="archivo" type="file" id="imagen" /><br /><br />
+        <input type="button" value="Subir imagen" onclick="onLoad()"/><br />
+    </form>
 
 <a href="descargar.php">Download my huge document (PDF)</a>
 
@@ -87,7 +81,7 @@ readfile("inicio.php");
         
         dsdsdsdsdsd
     </div>
- <div id="">
+ <div id="generar">
      <br>
      <br>
      
