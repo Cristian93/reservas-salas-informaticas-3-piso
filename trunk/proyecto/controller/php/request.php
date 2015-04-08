@@ -6,17 +6,18 @@ require 'rqClass.php';
 if (isset($_REQUEST["tipo"])) {
    
   
-    if ($_REQUEST["tipo"]==="submit") {
+    if ($_REQUEST["tipo"]==="generar") {
         
-        onUpload();
+        onGenerate();
     }
         
         
     
 }
-function onUpload(){
+function onGenerate(){
+    
     $rq=new rqClass();
-    $rq->onUpload();
+    $rq->onGenerate();
     
 }
 
