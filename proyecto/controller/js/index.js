@@ -45,7 +45,7 @@ function onLoad() {
 }
 function Ongenerate(){
     
-    alert("changillos");
+    
      $.ajax({
             url: 'controller/php/request.php',  
             type: 'POST',
