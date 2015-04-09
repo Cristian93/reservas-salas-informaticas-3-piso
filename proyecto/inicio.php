@@ -75,13 +75,21 @@ readfile("inicio.php");
        
     </div>
  <div id="generar">
+     <br>
+     <br>
      
+        
+        
     </div>
  <div id="">
-    
+     <br>
+     <br>
+     <br>
+       
+    </div>
  <div id="">
         
-      
+        
         
     </div>
                     </form>
