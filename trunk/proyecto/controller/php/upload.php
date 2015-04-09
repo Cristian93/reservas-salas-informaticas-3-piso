@@ -23,7 +23,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 
 
         echo "Archivo subido con exito<br>";
-        echo "<input type='button' value='Generar getters' onclick='Ongenerate()'/>";
+        echo "<input type='button' value='Generar DTOS' onclick='Ongenerate()'/>";
     }
 } else {
     throw new Exception("Error Processing Request", 1);
