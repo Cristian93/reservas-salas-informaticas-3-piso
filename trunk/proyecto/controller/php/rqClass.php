@@ -141,26 +141,36 @@ for($j=0;$j<  count($nombretablas);$j++){
     $ar=fopen("../files/DAOs/".$nombretablas[$j]."DAO.php","a") or
     die("Problemas en la creacion");
     
-    fputs($ar,"<"."?"."php\n class ".$nombretablas[$j]."DAO{\n");
-    for($i=0;$i<$conatributos;$i++){
+    fputs($ar,"<"."?"."php\n"."require 'ConnectionClass.php';\nrequire '".$nombretablas[$j]."DTO.php';\n" ."class ".$nombretablas[$j]."DAO{\n ");
+    fputs($ar,"private $"."dto; \nprivate $"."connection; \nprivate $"."arrayDTO; \nprivate $"."sql; \nprivate $"."row;\n");
+    fputs($ar,"function __construct(){\n "."$"."this"."->connection= new ConnectionClass();\n $"."this->dto = new".$nombretablas[$j]."DTO;\n}\n");
+    fputs($ar,"function read(){\n "."$"."this"."->sql= <<<GP\nSELECT * FROM ".$nombretablas[$j]."\nGP;\n"."$"."this"."->connection->setSQL($"."this->sql);\n}\n");
+    fputs($ar,"function update(){\n"."}\n");
+    fputs($ar,"function delete(){\n"."}\n");
+    
+    fputs($ar,"public function getlistDTO(){\n unset($"."this->arrayDTO);\n $"."this->arrayDTO=array();\n"."$"."this->row="."$"."this->connection->getRecordCurrent();\nwhile($"."this->row){\n$"."temp= new".$nombretablas[$j]."DTO();\n");
+    /*for($i=0;$i<$conatributos;$i++){
     
     
         if($atributo[$i][0]===$j){
         fputs($ar,"private $".$atributo[$i][1].";\n");
         }
     
-}
+}*/
   for($i=0;$i<$conatributos;$i++){
     
     
         if($atributo[$i][0]===$j){
-        fputs($ar,"\nfunction get".$atributo[$i][1]."(){\n return"." $"."this->".$atributo[$i][1].";\n}\n");
-        fputs($ar,"\nfunction set".$atributo[$i][1]."($".$atributo[$i][1]."){\n $"."this->".$atributo[$i][1]."= $".$atributo[$i][1].";\n}\n");
+        fputs($ar,"\n$"."temp->set".$atributo[$i][1]."($".'this->row["'.$atributo[$i][1].'"]);'."\n");
+        //fputs($ar,"\nfunction set".$atributo[$i][1]."($".$atributo[$i][1]."){\n $"."this->".$atributo[$i][1]."= $".$atributo[$i][1].";\n}\n");
         }
     
 }
-  fputs($ar,"\n}");
- 
+    fputs($ar,"\n$"."this->arrayDTO[]=$"."temp;\n");
+    fputs($ar,"\n$"."this->row=$"."this->connection->getRecordCurrent();\n");
+    fputs($ar,"\n}\n}");
+    fputs($ar,"\nfunction getArrayDTO(){\nreturn $"."this->arrayDTO();\n}");
+   fputs($ar,"\n}");
   fclose($ar);
 }
    
