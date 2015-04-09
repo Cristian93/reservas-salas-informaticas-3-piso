@@ -65,7 +65,7 @@ readfile("inicio.php");
                     <form enctype="multipart/form-data" class="formulario">
         <label>Subir un archivo</label><br />
         <input name="archivo" type="file" id="imagen" /><br /><br />
-        <input type="button" value="Subir imagen" onclick="onLoad()"/><br />
+        <input type="button" value="Subir archivo" onclick="onLoad()"/><br />
     </form>
 
 <a href="descargar.php">Download my huge document (PDF)</a>
