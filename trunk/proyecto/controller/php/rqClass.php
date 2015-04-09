@@ -106,10 +106,42 @@ for($i=0;$i< $cantidad;$i++){
 for($j=0;$j<  count($nombretablas);$j++){
    
   
-    $ar=fopen("../files/".$nombretablas[$j]."DTO.php","a") or
+    $ar=fopen("../files/DTOs/".$nombretablas[$j]."DTO.php","a") or
     die("Problemas en la creacion");
     
     fputs($ar,"<"."?"."php\n class ".$nombretablas[$j]."DTO{\n");
+    for($i=0;$i<$conatributos;$i++){
+    
+    
+        if($atributo[$i][0]===$j){
+        fputs($ar,"private $".$atributo[$i][1].";\n");
+        }
+    
+}
+  for($i=0;$i<$conatributos;$i++){
+    
+    
+        if($atributo[$i][0]===$j){
+        fputs($ar,"\nfunction get".$atributo[$i][1]."(){\n return"." $"."this->".$atributo[$i][1].";\n}\n");
+        fputs($ar,"\nfunction set".$atributo[$i][1]."($".$atributo[$i][1]."){\n $"."this->".$atributo[$i][1]."= $".$atributo[$i][1].";\n}\n");
+        }
+    
+}
+  fputs($ar,"\n}");
+ 
+  fclose($ar);
+}
+
+
+
+
+for($j=0;$j<  count($nombretablas);$j++){
+   
+  
+    $ar=fopen("../files/DAOs/".$nombretablas[$j]."DAO.php","a") or
+    die("Problemas en la creacion");
+    
+    fputs($ar,"<"."?"."php\n class ".$nombretablas[$j]."DAO{\n");
     for($i=0;$i<$conatributos;$i++){
     
     
