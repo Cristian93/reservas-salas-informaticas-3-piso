@@ -6,6 +6,9 @@ class rqClass {
 
 function onGenerate(){
      $fichero_texto = fopen ("../files/SCRIPTAPL.txt", "r");
+     $zip = new ZipArchive();
+     $filename = '../files/zip/DTOs.zip';
+
    //obtenemos de una sola vez todo el contenido del fichero
    //OJO! Debido a filesize(), sólo funcionará con archivos de texto
    $contenido_fichero = fread($fichero_texto, filesize("../files/SCRIPTAPL.txt"));
@@ -130,10 +133,16 @@ for($j=0;$j<  count($nombretablas);$j++){
   fputs($ar,"\n}");
  
   fclose($ar);
+  
+  if($zip->open($filename,ZIPARCHIVE::CREATE)===true) {
+  
+      $zip->addFile("../files/DTOs/".$nombretablas[$j]."DTO.php");
+      
+  }
 }
-
-
-
+$zip->close();
+$zip = new ZipArchive();
+ $filename = '../files/zip/DAOs.zip';
 
 for($j=0;$j<  count($nombretablas);$j++){
    
@@ -172,7 +181,18 @@ for($j=0;$j<  count($nombretablas);$j++){
     fputs($ar,"\nfunction getArrayDTO(){\nreturn $"."this->arrayDTO();\n}");
    fputs($ar,"\n}");
   fclose($ar);
+  if($zip->open($filename,ZIPARCHIVE::CREATE)===true) {
+  
+      $zip->addFile("../files/DAOs/".$nombretablas[$j]."DAO.php");
+      
+  }
 }
+$zip->close();
+unset($zip);
+echo "<a href='controller/files/zip/DAOs.zip'> Descargar DAOs</a>";
+echo "<br/>";
+echo "<a href='controller/files/zip/DTOs.zip'> Descargar DTOs</a>";
+
    
 
 }
