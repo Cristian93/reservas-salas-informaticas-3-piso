@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="controller/bootstrap/css/bootstrap.css">
     <script src="controller/js/jquery-1.11.2.min.js"></script>
     <script src="controller/bootstrap/js/bootstrap.js"></script>
-    <script src="http://localhost/proyecto/controller/js/index.js"></script>
+    <script src="controller/js/index.js"></script>
   
     <?php
 function nuevo (){
