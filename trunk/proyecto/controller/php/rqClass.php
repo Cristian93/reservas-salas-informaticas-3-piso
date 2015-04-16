@@ -5,10 +5,40 @@ class rqClass {
    
 
 function onGenerate(){
+     $ficheroseliminados=0;
+      $dir = "../files/DTOs/";
+        $handle = opendir($dir);
+        while ($file = readdir($handle)) {
+            if (is_file($dir . $file))
+                if (unlink($dir . $file))
+                    $ficheroseliminados++;
+        }
+        
+        
+        $ficheroseliminados=0;
+      $dir = "../files/DAOs/";
+        $handle = opendir($dir);
+        while ($file = readdir($handle)) {
+            if (is_file($dir . $file))
+                if (unlink($dir . $file))
+                    $ficheroseliminados++;
+        }
+         $ficheroseliminados=0;
+      $dir = "../files/zip/";
+        $handle = opendir($dir);
+        while ($file = readdir($handle)) {
+            if (is_file($dir . $file))
+                if (unlink($dir . $file))
+                    $ficheroseliminados++;
+        }
+        
+        
+        
+        
      $fichero_texto = fopen ("../files/SCRIPTAPL.txt", "r");
      $zip = new ZipArchive();
      $filename = '../files/zip/DTOs.zip';
-
+     $nombrebase="";
    //obtenemos de una sola vez todo el contenido del fichero
    //OJO! Debido a filesize(), sólo funcionará con archivos de texto
    $contenido_fichero = fread($fichero_texto, filesize("../files/SCRIPTAPL.txt"));
@@ -91,6 +121,19 @@ for($i=0;$i< $cantidad;$i++){
    }
    $cona++;
     }
+     if (strpos($v[$i],'CREATE SCHEMA') !== false) {
+        $concomillas2=0;
+         for($j=0;$j<strlen($v[$i]);$j++){
+            
+            if($v[$i][$j]==='`'){
+                $concomillas2++;
+            }
+            if($concomillas2===1 && $v[$i][$j]!='`'){
+                $nombrebase=$nombrebase.$v[$i][$j];
+            }
+        }
+    }
+    
     
      
     
@@ -187,13 +230,61 @@ for($j=0;$j<  count($nombretablas);$j++){
       
   }
 }
-$zip->close();
-unset($zip);
-echo "<a href='controller/files/zip/DAOs.zip'> Descargar DAOs</a>";
+
+
+ $v=file("../files/templates/ConnectionClass.php");
+ $cantidad = count($v);
+ $connect="";
+ $ar=fopen("../files/DAOs/ConnectionClass.php","a") or
+    die("Problemas en la creacion");
+ 
+ 
+for($i=0;$i< $cantidad;$i++){
+    
+    
+        if (strpos($v[$i],'$'.'this->dataBase') !== false) {
+        $connect=$connect.'$'."this->dataBase =".$nombrebase.";\n";
+        
+        }
+        else{
+          $connect=$connect.$v[$i];  
+        }
+        
+    
+}
+fputs($ar, $connect);
+fclose($ar);
+
+ $zip->addFile("../files/DAOs/ConnectionClass.php");
+ $zip->close();
+ 
+ //Borrar archivos dtos
+ /*
+  $ficheroseliminados=0;
+      $dir = "../files/DTOs/";
+        $handle = opendir($dir);
+        while ($file = readdir($handle)) {
+            if (is_file($dir . $file))
+                if (unlink($dir . $file))
+                    $ficheroseliminados++;
+        }
+    //Borrar archivos daos    
+        
+        $ficheroseliminados=0;
+      $dir = "../files/DAOs/";
+        $handle = opendir($dir);
+        while ($file = readdir($handle)) {
+            if (is_file($dir . $file))
+                if (unlink($dir . $file))
+                    $ficheroseliminados++;
+        }
+ */
+ 
+echo "<a href='controller/files/zip/DAOs.zip'> Descargar DAOs y Clase de Conexión</a>";
 echo "<br/>";
 echo "<a href='controller/files/zip/DTOs.zip'> Descargar DTOs</a>";
 
-   
+
 
 }
 }
