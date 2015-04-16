@@ -68,7 +68,7 @@ readfile("inicio.php");
         <input type="button" value="Subir archivo" onclick="onLoad()"/><br />
     </form>
 
-<a href="descargar.php">Download my huge document (PDF)</a>
+
 
 
     <div id="subir">

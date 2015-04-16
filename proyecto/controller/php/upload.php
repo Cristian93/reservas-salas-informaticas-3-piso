@@ -3,7 +3,10 @@
 //comprobamos que sea una petición ajax
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-
+     if (is_file("../files/SCRIPTAPL.txt"))
+    unlink("../files/SCRIPTAPL.txt");
+     
+     
     //obtenemos el archivo a subir
     $file = $_FILES['archivo']['name'];
 
@@ -17,10 +20,11 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
         $contenido_fichero = fread($fichero_texto, filesize("../files/" . $file));
         $ar = fopen("../files/SCRIPTAPL.txt", "a") or
                 die("Problemas en la creacion");
+        
         fputs($ar, $contenido_fichero);
 
         fclose($ar);
-
+        
 
         echo "Archivo subido con exito<br>";
         echo "<input type='button' value='Generar DAOs y DTOs' onclick='Ongenerate()'/>";
